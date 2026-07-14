@@ -1,0 +1,46 @@
+# Sea-inspired color palette for Astoria Requiem
+
+# success: "#7fb5a0"     # Seafoam green
+# info: "#87ceeb"        # Light sky blue
+# warning: "#d4a017"     # Sandy gold
+# danger: "#c0392b"      # Coral red
+# light: "#e8f4f8"       # Sea foam white
+# dark: "#0d1b2a"        # Deep navy
+#body-bg: "#f5f9fa"     # Pale blue-gray
+#body-color: "#2c3e50"  # Dark slate
+
+#meta:
+#  name: brand.yml
+#  link: https://posit-dev.github.io/brand-yml
+
+#logo: logos/icon/brand-yml-icon-color.svg
+
+color:
+  palette:
+    black: "#1A1A1A"
+    white: "#F9F9F9"
+    orange: "#FF6F20"
+    pink: "#FF3D7F"
+  primary: "#7fb5a0"    # Deep ocean blue
+  secondary: "#2e8b8b"   # Teal / sea green
+  foreground: "#f5f9fa"     # Pale blue-gray
+  background: "#2c3e50"  # Dark slate
+  #foreground: black
+  #background: white
+  #primary: orange
+  #danger: pink
+
+typography:
+  fonts:
+    - family: Open Sans
+      source: google
+    - family: Rubik
+      source: google
+    - family: IBM Plex Mono
+      source: google
+
+  base: Open Sans
+  headings:
+    family: Rubik
+    weight: 400
+  monospace: IBM Plex Mono

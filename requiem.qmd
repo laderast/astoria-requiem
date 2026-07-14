@@ -1,0 +1,30 @@
+---
+title: "Part 3: Requiem"
+lightbox: true
+---
+
+## Background
+
+Following a storm, many bodies could not be immediately identified. As a result, local papers would publish what the deceased were wearing, and the contents in their pockets. For example, a compelling story could be derived from this passage:
+
+> Said body wore one white shirt, one coarse grey woolen shirt, one pair coarse cotton drawers, one pair blue overalls, 1 pair duck overalls, black vest, faded black beaver coat, southwester and oil skin coat. [...] In pocket were found some white rags, a red silk handkerchief with J. Richten marked in one corner, a copy of the DAILY ASTORIAN of April 22, **a ring with a small key, a white handled 3 bladed pocket knife, a pocket comb, a beer ticket from Ginder, a title table for April, half doller US coin, I Bavarian 3 kreutzer piece of 1851 vintage**, a cannery ticket marked A. Booth, No. 6, April 22nd, Boat No. 2, No. of fish 4. - Contents of an unknown body found (Daily Astorian)
+
+This movement is inspired by such entries.
+
+## About the Movement
+
+The last section is an elegaic one, drifting and lost. The river and ocean take lives away, and we are subject to the aftermath. This section is simpler and have music that expands as it goes as the instruments are processed using granular synthesis. 
+
+## The Lost Fishermen
+
+Fishermen lost during 1880 (From Salmon Fever, River's End p. 40):
+
+- Thomas Gill and George Adams, G. W. Hume's boat *No. 11*.
+- Mr. Gadway and net tender, fished for Astoria Fishery or large Kinney cannery.
+- Peter J. Blegan and boat puller, Independent.
+- Andrew Hansen, fished for G. W. Hume
+- Henry Heinsen, died May 4 in a boat on Chinook Beach after drifting about in a swamped boat eight hours.
+- Agust Wrentz and Dick Jones, fished for J. G. Megler and Company. Wrentz found entangled in net in boot in the Chinook River.
+- Charles Harvey, found on May 12th. Coroners inquest on the 13th. Fished for J. G. Megler & Co. with a man named Pike.
+- Alex Pholson, drowned May 3rd or 4th. Fished for the Anglo American packing company with Mr. Johnson, boat *No 23*.
+- Andrew Gill and Alex Chase, have not the date.

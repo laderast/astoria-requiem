@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sea Palette Preview</title>
+  <style>
+    :root {
+      --primary: #1a5276;
+      --secondary: #2e8b8b;
+      --success: #7fb5a0;
+      --info: #87ceeb;
+      --warning: #d4a017;
+      --danger: #c0392b;
+      --light: #e8f4f8;
+      --dark: #0d1b2a;
+      --body-bg: #f5f9fa;
+      --body-color: #2c3e50;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--body-bg);
+      color: var(--body-color);
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    h2 {
+      color: var(--dark);
+      margin: 2rem 0 1rem;
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 0.3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .color-swatch {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .swatch-info {
+      font-size: 0.9rem;
+    }
+
+    .swatch-info strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    code {
+      background: var(--light);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.85rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      margin: 0.25rem;
+    }
+    .btn-primary { background: var(--primary); }
+    .btn-secondary { background: var(--secondary); }
+    .btn-success { background: var(--success); color: var(--dark); }
+    .btn-info { background: var(--info); color: var(--dark); }
+    .btn-warning { background: var(--warning); color: var(--dark); }
+    .btn-danger { background: var(--danger); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    /* Alerts */
+    .alert {
+      padding: 1rem 1.2rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border-left: 4px solid;
+    }
+    .alert-primary { background: var(--light); border-color: var(--primary); color: var(--primary); }
+    .alert-secondary { background: #e6f5f5; border-color: var(--secondary); color: #1a5c5c; }
+    .alert-success { background: #e8f5ee; border-color: var(--success); color: #1a5c4a; }
+    .alert-info { background: #e0f3ff; border-color: var(--info); color: #0d4a6e; }
+    .alert-warning { background: #fef8e7; border-color: var(--warning); color: #6b5200; }
+    .alert-danger { background: #f9e8e8; border-color: var(--danger); color: #7a1f15; }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+      margin: 0.15rem;
+    }
+    .badge-primary { background: var(--primary); }
+    .badge-secondary { background: var(--secondary); }
+    .badge-success { background: var(--success); }
+    .badge-info { background: var(--info); color: var(--dark); }
+    .badge-warning { background: var(--warning); color: var(--dark); }
+    .badge-danger { background: var(--danger); }
+
+    /* Links */
+    a { color: var(--primary); }
+    a:hover { color: var(--secondary); }
+
+    /* Nav bar mock */
+    .nav {
+      background: var(--dark);
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav a:hover { color: var(--info); }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    th, td {
+      padding: 0.6rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--light);
+    }
+    th {
+      background: var(--primary);
+      color: white;
+    }
+    tr:nth-child(even) { background: var(--light); }
+
+    /* Progress bar */
+    .progress {
+      height: 24px;
+      background: var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .progress-bar {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .progress-primary { background: var(--primary); color: white; }
+    .progress-secondary { background: var(--secondary); }
+    .progress-success { background: var(--success); }
+    .progress-info { background: var(--info); }
+
+    /* Code block */
+    pre {
+      background: var(--dark);
+      color: var(--light);
+      padding: 1.2rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Astoria Requiem — Sea Palette Preview</h1>
+
+  <!-- Navbar -->
+  <nav class="nav">
+    <a href="#">Home</a>
+    <a href="#">Two Forces</a>
+    <a href="#">Ebbtide</a>
+    <a href="#">Requiem</a>
+    <a href="#">References</a>
+  </nav>
+
+  <!-- Color Swatches -->
+  <h2>Color Swatches</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--primary)"></div>
+        <div class="swatch-info"><strong>Primary</strong><code>#1a5276</code></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--secondary)"></div>
+        <div class="swatch-info"><strong>Secondary</strong><code>#2e8b8b</code></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--success)"></div>
+        <div class="swatch-info"><strong>Success</strong><code>#7fb5a0</code></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--info)"></div>
+        <div class="swatch-info"><strong>Info</strong><code>#87ceeb</code></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--warning)"></div>
+        <div class="swatch-info"><strong>Warning</strong><code>#d4a017</code></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--danger)"></div>
+        <div class="swatch-info"><strong>Danger</strong><code>#c0392b</code></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--light)"></div>
+        <div class="swatch-info"><strong>Light</strong><code>#e8f4f8</code></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch" style="background:var(--dark)"></div>
+        <div class="swatch-info"><strong>Dark</strong><code>#0d1b2a</code></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <h2>Buttons</h2>
+  <div class="card">
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <button class="btn btn-success">Success</button>
+    <button class="btn btn-info">Info</button>
+    <button class="btn btn-warning">Warning</button>
+    <button class="btn btn-danger">Danger</button>
+    <button class="btn btn-outline">Outline</button>
+  </div>
+
+  <!-- Alerts -->
+  <h2>Alerts</h2>
+  <div class="alert alert-primary">Primary alert — deep ocean blue border and tint.</div>
+  <div class="alert alert-secondary">Secondary alert — sea green accent.</div>
+  <div class="alert alert-success">Success alert — seafoam green.</div>
+  <div class="alert alert-info">Info alert — light sky blue.</div>
+  <div class="alert alert-warning">Warning alert — sandy gold.</div>
+  <div class="alert alert-danger">Danger alert — coral red.</div>
+
+  <!-- Badges -->
+  <h2>Badges</h2>
+  <div class="card">
+    <span class="badge badge-primary">Primary</span>
+    <span class="badge badge-secondary">Secondary</span>
+    <span class="badge badge-success">Success</span>
+    <span class="badge badge-info">Info</span>
+    <span class="badge badge-warning">Warning</span>
+    <span class="badge badge-danger">Danger</span>
+  </div>
+
+  <!-- Progress -->
+  <h2>Progress Bars</h2>
+  <div class="progress"><div class="progress-bar progress-primary" style="width:75%">75%</div></div>
+  <div class="progress"><div class="progress-bar progress-secondary" style="width:60%">60%</div></div>
+  <div class="progress"><div class="progress-bar progress-success" style="width:85%">85%</div></div>
+  <div class="progress"><div class="progress-bar progress-info" style="width:45%">45%</div></div>
+
+  <!-- Table -->
+  <h2>Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Role</th>
+        <th>Hex</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:var(--primary);font-weight:600">■</td><td>Primary</td><td><code>#1a5276</code></td></tr>
+      <tr><td style="color:var(--secondary);font-weight:600">■</td><td>Secondary</td><td><code>#2e8b8b</code></td></tr>
+      <tr><td style="color:var(--success);font-weight:600">■</td><td>Success</td><td><code>#7fb5a0</code></td></tr>
+      <tr><td style="color:var(--info);font-weight:600">■</td><td>Info</td><td><code>#87ceeb</code></td></tr>
+      <tr><td style="color:var(--warning);font-weight:600">■</td><td>Warning</td><td><code>#d4a017</code></td></tr>
+      <tr><td style="color:var(--danger);font-weight:600">■</td><td>Danger</td><td><code>#c0392b</code></td></tr>
+      <tr><td style="color:var(--light);font-weight:600">■</td><td>Light</td><td><code>#e8f4f8</code></td></tr>
+      <tr><td style="color:var(--dark);font-weight:600">■</td><td>Dark</td><td><code>#0d1b2a</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Code Block -->
+  <h2>Code Block</h2>
+  <pre><code>---
+title: "My Document"
+bibliography: refs.bib
+---
+
+Some research <code>[@smith2020]</code> showed that...
+
+::: {#refs}
+:::</code></pre>
+
+</body>
+</html>
